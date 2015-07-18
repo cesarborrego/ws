@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="policiales">
+        <item>No disponible</item>
+     	<item>Dirección Antidrogas</item>
+		<item>Dirección Contra el Terrorismo</item>
+		<item>Dirección de Investigación Criminal</item>
+    </string-array>
+</resources>

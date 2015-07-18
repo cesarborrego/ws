@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sectores">
+        <item>No disponible</item>
+        <item>Ave. Gral. Gregorio Luperon</item>
+        <item>Cristo Rey</item>
+        <item>Dominicanos Residentes en el Exterior(Feria)</item>
+        <item>Dr. Delgado</item>
+        <item>Ens. Luperon</item>
+        <item>Extranjeros, Edif. Jhonson</item>
+        <item>Gazcue</item>
+        <item>Junta del Distrito Nacional (Feria)</item>
+        <item>Militar, Junta del Distrito Nacional (Feria)</item>
+        <item>Santiago (01) Las Carreras</item>
+        <item>Santiago (02) Restauración</item>
+        <item>No disponible</item>
+        <item>Altamira</item>
+        <item>Arenoso</item>
+        <item>Azua (01) Emilio Prud Homme</item>
+        <item>Azua (02) Armando Aybar</item>
+        <item>Bajos de Haina</item>
+        <item>Bani</item>
+        <item>Banica</item>
+        <item>Barahona</item>
+        <item>Bávaro</item>
+        <item>Bayaguana</item>
+        <item>Boca Chica, Provincia Santo Domingo</item>
+        <item>Bonao</item>
+        <item>Cabral</item>
+        <item>Cabrera</item>
+        <item>Cambita Garabitos</item>
+        <item>Carretera Mella, Santo Domingo Este</item>
+        <item>Castañuela</item>
+        <item>Castillo</item>
+        <item>Cayetano Germosen</item>
+        <item>Cevicos</item>
+        <item>Ciudad Modelo (Jacobo Majluta)</item>
+        <item>Comendador</item>
+        <item>Constanza</item>
+        <item>Consuelo</item>
+        <item>Cotui</item>
+        <item>Dajabon</item>
+        <item>Duverge</item>
+        <item>El Cercado</item>
+        <item>El Factor</item>
+        <item>El Peñón</item>
+        <item>El Puñal, Santiago de los Caballeros</item>
+        <item>El Seybo</item>
+        <item>Esperanza</item>
+        <item>Fantino</item>
+        <item>Galván</item>
+        <item>Gaspar Hernández</item>
+        <item>Guaymate</item>
+        <item>Guayubin</item>
+        <item>Hato Mayor</item>
+        <item>Herrera, Santo Domingo Oeste</item>
+        <item>Higuey</item>
+        <item>Imbert</item>
+        <item>Janico</item>
+        <item>Jarabacoa</item>
+        <item>Jima Abajo</item>
+        <item>Jimani</item>
+        <item>La Cienega (Barahona)</item>
+        <item>La Romana</item>
+        <item>La Vega</item>
+        <item>Laguna Salada</item>
+        <item>Las Americas, Santo Domingo Este</item>
+        <item>Las Caobas, Santo Domingo Oeste</item>
+        <item>Las Guaranas</item>
+        <item>Las Matas de Farfán</item>
+        <item>Las Salinas</item>
+        <item>Las Terrenas</item>
+        <item>Las Yayas de Viajama</item>
+        <item>Licey al Medio</item>
+        <item>Loma de Cabrera</item>
+        <item>Los Alcarrizos, Provincia Santo Domingo</item>
+        <item>Los Hidalgos</item>
+        <item>Los Mina, Santo Domingo Este</item>
+        <item>Luperon</item>
+        <item>Maimón</item>
+        <item>Mao</item>
+        <item>Miches</item>
+        <item>Militar La Romana</item>
+        <item>Moca</item>
+        <item>Moncion</item>
+        <item>Monte Plata</item>
+        <item>Montecristi</item>
+        <item>Nagua</item>
+        <item>Neyba</item>
+        <item>Nizao</item>
+        <item>Oviedo</item>
+        <item>Padre las Casas</item>
+        <item>Paraíso</item>
+        <item>Pedernales</item>
+        <item>Pedro Brand, Provincia Santo Domingo</item>
+        <item>Piedra Blanca</item>
+        <item>Pimentel</item>
+        <item>Plaza Naco</item>
+        <item>Postrer Rio</item>
+        <item>Puerto Plata</item>
+        <item>Quisqueya</item>
+        <item>Ramón Santana</item>
+        <item>Rio San Juan</item>
+        <item>Sabana de la Mar</item>
+        <item>Sabana Grande de Boya</item>
+        <item>Sabana Grande de Palenque</item>
+        <item>Sabana Iglesia</item>
+        <item>Sabana Perdida, Santo Domingo Norte</item>
+        <item>Sabana Yegua</item>
+        <item>Salcedo</item>
+        <item>Samana</item>
+        <item>San Antonio de Guerra, Provincia Santo Domingo</item>
+        <item>San Cristóbal</item>
+        <item>San Francisco de Macoris (01) Av. Mella</item>
+        <item>San Francisco de Macoris (02) C/ El Carmen</item>
+        <item>San Gregorio de Nigua</item>
+        <item>San Ignacio de Sabaneta</item>
+        <item>San José de las Matas</item>
+        <item>San José de Los Llanos</item>
+        <item>San José de Ocoa</item>
+        <item>San Juan de la Maguana</item>
+        <item>San Pedro de Macorís</item>
+        <item>San Rafael del Yuma</item>
+        <item>Sánchez</item>
+        <item>Sosua</item>
+        <item>Tabara Arriba</item>
+        <item>Tamayo</item>
+        <item>Tamboril</item>
+        <item>Tenares</item>
+        <item>Vallejuelo SJM</item>
+        <item>Vicente Noble</item>
+        <item>Viilla los Almácigos</item>
+        <item>Villa Altagracia</item>
+        <item>Villa Bisono - Navarrete</item>
+        <item>Villa Gonzalez</item>
+        <item>Villa Isabela</item>
+        <item>Villa la Mata</item>
+        <item>Villa Mella, Santo Domingo Norte</item>
+        <item>Villa Montellano</item>
+        <item>Villa Riva</item>
+        <item>Villa Tapia</item>
+        <item>Villa Vázquez</item>
+        <item>Yaguate</item>
+        <item>Yamasa</item>
+    </string-array>
+</resources>

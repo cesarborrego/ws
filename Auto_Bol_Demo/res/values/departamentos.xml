@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="departamentos">
+        <item>No Disponible</item>
+		<item>BOLIVIA</item>
+		<item>Azcapotzalco</item>
+		<item>Milpa Alta</item>
+		<item>Tláhuac</item>
+		<item>Tlalpan</item>
+		<item>Cuahutémoc</item>
+		<item>Benito Juárez</item>
+		<item>Álvaro Obregón</item>
+		<item>Miguel Hidalgo</item>
+    </string-array>
+</resources>

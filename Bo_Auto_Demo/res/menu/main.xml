@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:id="@+id/buscar_item"
+        android:title="@string/buscar_label"
+        android:icon="@drawable/search_na"
+        android:orderInCategory="0"
+        android:showAsAction="ifRoom|withText"
+         />
+
+</menu>

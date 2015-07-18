@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="territoriales">
+        <item>No disponible</item>
+        <item>Región Policial Norte</item>
+		<item>Región Policial Centro</item>
+		<item>Región Policial Sur</item>
+		<item>Región Policial Sur Oriente</item>
+		<item>Región Policial Oriente</item>
+		<item>Región Policial Lima</item>
+		<item>Región Policial Callao</item>
+		<item>Frente VRAM</item>
+		<item>Frente HUALLAGA</item>
+    </string-array>
+</resources>

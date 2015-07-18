@@ -1,0 +1,242 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sliding_a"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".LicenseDataActivity"
+    android:background="@android:color/white" >
+
+    
+
+    <TextView
+        android:id="@+id/license_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/hello_world"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/apellidos_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/license_number"
+        android:layout_marginTop="0dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/vin_label"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/apellidos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/apellidos_label"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/vin_label"
+        android:textColor="#0099CC"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/nombre_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/apellidos"
+        android:fontFamily="sans-serif"
+        android:text="@string/marca_label"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nombre_label"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/marca_label"
+        android:textColor="#0099CC"
+        android:textSize="20sp" />
+    
+    <TextView
+        android:id="@+id/submarca_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nombre"
+        android:fontFamily="sans-serif"
+        android:text="@string/sub_label"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/submarca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/submarca_label"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/sub_label"
+        android:textColor="#0099CC"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/fechanac_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/submarca"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/modelo_label"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/fechanac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/fechanac_label"
+        android:layout_below="@id/submarca"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/modelo_label"
+        android:textColor="#0099CC"
+        android:textSize="20sp" />
+    
+    
+    <TextView
+        android:id="@+id/version_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fechanac"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/version_label"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/version_label"
+        android:layout_below="@id/fechanac"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/version_label"
+        android:textColor="#0099CC"
+        android:textSize="20sp" />
+    
+    <TextView
+        android:id="@+id/sexo_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/version"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/clase_label"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/sexo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/version"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/sexo_label"
+        android:fontFamily="sans-serif-condensed"
+        android:text=""
+        android:textColor="#0099CC"
+        android:textSize="20sp" />
+    
+    <TextView
+        android:id="@+id/color_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sexo"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/color_label"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sexo"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/color_label"
+        android:fontFamily="sans-serif-condensed"
+        android:text=""
+        android:textColor="#0099CC"
+        android:textSize="20sp" />
+    
+	<TextView
+        android:id="@+id/uso_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/color"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/uso_label"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/uso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/color"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/uso_label"
+        android:fontFamily="sans-serif-condensed"
+        android:text=""
+        android:textColor="#0099CC"
+        android:textSize="20sp" />
+    
+    
+    <TextView
+        android:id="@+id/propietario_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/uso"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/propietario_label"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/apellidosp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/propietario_label"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text=""
+        android:textColor="#0099CC"
+        android:textSize="20sp" />
+     
+     <TextView
+        android:id="@+id/nombrep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/apellidosp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text=""
+        android:textColor="#0099CC"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/image_photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@string/title_app"
+        android:src="@drawable/personal" />
+
+</RelativeLayout>

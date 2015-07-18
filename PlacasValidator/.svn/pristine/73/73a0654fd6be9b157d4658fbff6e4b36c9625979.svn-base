@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Validación Engomado</string>
+    <string name="action_settings">v0.2</string>
+    <string name="title_app">Validación de 3ra Placa</string>
+    <string name="vehicle_label">Válido hasta</string>
+    <string name="vehicle_name">YYYY</string>
+    <string name="recharge_label">Buscar datos</string>
+    <string name="historic_label">Movimientos</string>
+    <string name="balance_label">No.</string>
+    <string name="tmp_balance">Placa</string>
+    <string name="title_activity_recharge">Recarga de Saldo</string>
+    <string name="title_activity_list_recharge">Recarga de Saldo</string>
+    <string name="title_list_recharge">Seleccione la cantidad que desea recargar</string>
+    <string name="title_activity_list_historic">Consulta de movimientos</string>
+    <string name="readTagNFC_label">Perso NFC</string>
+    <string name="invalidLicense_label">No válido</string>
+   	<string name="clase_label">Clase y Tipo</string>
+    <string name="vencida_string">Cédula vencida</string>
+    <string name="title_activity_license_data">Validación de 3ra Placa</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="wait_label">Espere un momento</string>
+    <string name="gettingdata_label">Obteniendo información&#8230;</string>
+    <string name="identidad_label">Registro de Nacimiento</string>
+    <string name="vin_label">VIN</string>
+    <string name="marca_label">Marca</string>
+    <string name="sub_label">Sub marca</string>
+    <string name="version_label">Versión</string>
+    <string name="modelo_label">Modelo</string>
+    <string name="uso_label">Uso de Vehículo</string>
+    <string name="color_label">Color</string>
+    <string name="propietario_label">Propietario</string>
+    <string name="apellidos_label">Nombre</string>
+    <string name="nombre_label">Apellidos</string>
+    <string name="fechanac_label">Fecha y lugar de nacimiento</string>
+    <string name="sexo_label">Sexo</string>
+    <string name="sangre_label">Sangre</string>
+    <string name="expedicion_label">Date d\'edition</string>
+    <string name="expiracion_label">Expiración</string>
+    <string name="dirterritorial_label">Entidad</string>
+    <string name="nacionalidad_label">Nacionalidad</string>
+    <string name="particularidades_label">Señas particulares</string>
+    <string name="dirpolicial_label">Tipo de servicio</string>
+    <string name="ubicacion_label">Ubicación del colegio</string>
+    <string name="unidad_label">Unidad</string>
+    <string name="contacto_label">Contacto</string>
+    <string name="cp_label">Código Postal</string>
+    <string name="municipio_label">Municipio</string>
+    <string name="nfc_warning">NFC no disponible</string>
+    <string name="nfc_welcome">Valide la placa realizando la lectura del tag NFC</string>
+    <string name="default_content">RFID001|00|20|0|1</string>
+    
+
+</resources>

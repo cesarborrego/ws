@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="c.neo.placas_validator"
+    android:versionCode="2"
+    android:versionName="0.2" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/neology_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="c.neo.placas_validator.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <data android:mimeType="app/c.neo.placas_validator" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="c.neo.placas_validator.PersoTagActivity"
+            android:label="@string/title_activity_recharge"
+            android:parentActivityName="c.neo.placas_validator.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.testapp.MainActivity" />
+
+            <intent-filter>
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="c.neo.placas_validator.ListRecharge"
+            android:label="@string/title_activity_list_recharge" >
+        </activity>
+        <activity
+            android:name="c.neo.placas_validator.ListHistoric"
+            android:label="@string/title_activity_list_historic" >
+        </activity>
+        <activity
+            android:name="c.neo.placas_validator.LicenseDataActivity"
+            android:label="@string/title_activity_license_data"
+            android:screenOrientation="portrait"  >
+        </activity>
+    </application>
+
+</manifest>
