@@ -446,7 +446,7 @@ int drawable ic_launcher1 0x7f02005c
 int drawable jefe_gabinete 0x7f02005d
 int drawable neology_tb 0x7f02005e
 int drawable neology_tb2 0x7f02005f
-int drawable notification_template_icon_bg 0x7f02006b
+int drawable notification_template_icon_bg 0x7f02006e
 int drawable ok 0x7f020060
 int drawable persona 0x7f020061
 int drawable search 0x7f020062
@@ -454,10 +454,13 @@ int drawable search_na 0x7f020063
 int drawable search_wh 0x7f020064
 int drawable segip_logo 0x7f020065
 int drawable smartrac 0x7f020066
-int drawable soat_1 0x7f020067
-int drawable test 0x7f020068
-int drawable test_1 0x7f020069
-int drawable vencido 0x7f02006a
+int drawable soat4 0x7f020067
+int drawable soat5 0x7f020068
+int drawable soat6 0x7f020069
+int drawable soat_1 0x7f02006a
+int drawable test 0x7f02006b
+int drawable test_1 0x7f02006c
+int drawable vencido 0x7f02006d
 int id action0 0x7f0900b5
 int id action_bar 0x7f090040
 int id action_bar_activity_content 0x7f090003

@@ -247,17 +247,8 @@ public class MainActivity extends Activity {
 				}
 
 				no_cedula = datosTag[0];
-//				tvUI = (TextView) findViewById(R.id.cedula);
-//				tvUI.setText(no_cedula);
-
 				tvUI = (TextView) findViewById(R.id.matricula);
-				tvUI.setText(datosTag[0]);
-
-//				tvUI = (TextView) findViewById(R.id.serie);
-//				tvUI.setText(datosTag[2]);
-//				tvUI = (TextView) findViewById(R.id.seccion);
-//				tvUI.setText(datosTag[3]);
-				
+				tvUI.setText(datosTag[0]);				
 				tvUI = (TextView) findViewById(R.id.fecha_emision);
 				tvUI.setText(datosTag[2]);
 				tvUI = (TextView) findViewById(R.id.fecha_vencimiento);
@@ -275,11 +266,23 @@ public class MainActivity extends Activity {
 				// int id_img_depto =
 				// getResources().getIdentifier("depto_"+datosTag[6],
 				// "drawable", getPackageName());
-				int id_img_depto = getResources().getIdentifier("esfera",
-						"drawable", getPackageName());
+				String tipoAuto[] = new String[]{"PARTICULAR","MOTOCICLETA","TRANSPORTE PUBLICO", "TRANSPORTE PRIVADO"};
+				
 
-				ivUI = (ImageView) findViewById(R.id.img_depto);
-				ivUI.setImageResource(id_img_depto);
+				String tipo = "PARTICULAR";
+				if(tipoAuto[0].equals(tipo)) {
+					int id_img_depto = getResources().getIdentifier("soat4",
+							"drawable", getPackageName());
+					ivUI = (ImageView) findViewById(R.id.img_depto);
+					ivUI.setImageResource(id_img_depto);
+				} else if (tipoAuto[1].equals(tipo)) {
+					int id_img_depto = getResources().getIdentifier("esfera",
+							"drawable", getPackageName());
+					ivUI = (ImageView) findViewById(R.id.img_depto);
+					ivUI.setImageResource(id_img_depto);
+				}
+				
+				
 
 				try {
 					search_itemUI = menu_mainUI.findItem(R.id.buscar_item);

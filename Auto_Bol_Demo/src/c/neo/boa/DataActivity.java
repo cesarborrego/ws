@@ -40,7 +40,7 @@ import android.widget.Toast;
 import c.neo.boa.fragments.FrenteFragment;
 import c.neo.boa.fragments.ReversoFragment;
 import c.neo.boa.pagetransformers.ZoomOutPageTransformer;
-import c.neo.boa.utils.Cedula;
+import c.neo.boa.utils.Auto;
 import c.neo.boa.utils.CheckInternetConnection;
 import c.neo.boa.R;
 
@@ -70,10 +70,10 @@ public class DataActivity extends FragmentActivity implements
 	private SoapSerializationEnvelope envelope = null;
 	private SoapPrimitive resultsRequestSOAP = null;
 
-	private static final String SOAP_ACTION = "urn:datosUsr";
+	private static final String SOAP_ACTION = "";
 	private static final String METHOD_NAME = "datosUsr";
-	private static final String NAMESPACE = "http://auto.neo.c";
-	private static final String URL = "http://192.168.32.62:8080/autosWS/services/ServiceAuto?wsdl";
+	private static final String NAMESPACE = "http://ws.neo.c";
+	private static final String URL = "http://192.168.0.14:8080/WS/services/ServiceAuto?wsdl";
 
 	// Dialog to show a wait message
 	private ProgressDialog dialog;
@@ -92,8 +92,6 @@ public class DataActivity extends FragmentActivity implements
 		Intent intent = getIntent();
 
 		no_cedula = intent.getStringExtra("NO_CEDULA");
-
-		Log.d(TAG, "Num de matricula a consultar: " + no_cedula);
 
 		// Creacion del mensaje de espera
 		dialog = new ProgressDialog(this);
@@ -262,19 +260,27 @@ public class DataActivity extends FragmentActivity implements
 		}
 	}
 	
-	private class ws extends AsyncTask<String, Void, Void> {
+	private class ws extends AsyncTask<String, Float, String> {
+		
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			dialog.show();
+		}
 
 		@Override
-		protected Void doInBackground(String... params) {
-			try {
+		protected String doInBackground(String... params) {
+			Object resultado = null;
+			
+			try {			
 
+				Log.i(TAG, "Num de matricula a consultar: " + no_cedula);
 				// Modelo el request
 				SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
 				request.addProperty("srtFolio", params[0]); // Paso parametros al WS
 
 				// Modelo el Sobre
 				SoapSerializationEnvelope sobre = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-				sobre.dotNet = false;
 				sobre.setOutputSoapObject(request);
 
 				// Modelo el transporte
@@ -284,140 +290,51 @@ public class DataActivity extends FragmentActivity implements
 				transporte.call(SOAP_ACTION, sobre);
 
 				// Resultado
-				Object resultado = (SoapPrimitive) sobre.getResponse();
+				resultado = sobre.getResponse();
 
 				Log.i("Resultado", resultado.toString());
 
 			} catch (Exception e) {
 				Log.e("ERROR", e.getMessage());
 			}
-			return null;
+			return resultado.toString();
+		}
+		
+		@Override
+		protected void onPostExecute(String result) {
+			super.onPostExecute(result);
+			dialog.dismiss();
+			if (result != null) {
+				try {
+					String[] elementos = result.split("\\|");
+					Auto autosObj = new Auto(elementos);
+					Log.d(TAG, "Folio Auto: " + autosObj.getStrFolio());
+					setUIDatosFrente(autosObj);
+				}catch(Exception e) {
+					
+				}
+			}
 		}
 		
 	}
 
-	private class ConsultaWS extends AsyncTask<String, Float, String> {
-
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			dialog.show();
-		}
-
-		@Override
-		protected String doInBackground(String... params) {
-			Log.d(TAG, "Consultar Permiso: " + params[0]);
-			String res = null;
-			try {
-				request = new SoapObject(NAMESPACE, METHOD_NAME);
-				request.addProperty("srtFolio", params[0]);
-				envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-				Log.d(TAG, "Envelope: " + envelope.toString());
-				envelope.setOutputSoapObject(request);
-				HttpTransportSE transporte = new HttpTransportSE(URL);
-				transporte.debug = false;
-
-				transporte.call(SOAP_ACTION, envelope);
-				resultsRequestSOAP = (SoapPrimitive) envelope.getResponse();
-				res = resultsRequestSOAP.toString();
-				Log.d(TAG, "Response: " + res);
-
-			} catch (Exception e) {
-				Log.e(TAG,
-						"Exception::ConsultaWS:doInBackground->"
-								+ e.getMessage());
-			}
-			return res;
-		}
-
-		@Override
-		protected void onPostExecute(String response) {
-			dialog.dismiss();
-			if (response != null) {
-				try {
-					String[] elementos = response.split("\\|");
-					Cedula cedulaObj = new Cedula(elementos);
-					Log.d(TAG, "Nombre: " + cedulaObj.getStrNombre());
-					setUIDatosFrente(cedulaObj);
-					setUIDatosReverso(cedulaObj);
-
-//					new DownloadFileFromURL().execute(
-//							"http://148.245.107.245:8095/"
-//									+ cedulaObj.getStrURLfoto(),
-//							Integer.toString(R.id.foto_img), "foto.png");	
-//					new DownloadFileFromURL().execute(
-//							"http://148.245.107.245:8095/"
-//									+ cedulaObj.getStrURLfoto(),
-//							Integer.toString(R.id.imgFantasmaID), "foto.png");
-//					new DownloadFileFromURL().execute(
-//							"http://148.245.107.245:8095/"
-//									+ cedulaObj.getStrURLfirma(),
-//							Integer.toString(R.id.firmaID), "firma.png");
-//					new DownloadFileFromURL().execute(
-//							"http://148.245.107.245:8095/"
-//									+ cedulaObj.getStrURLhuella(),
-//							Integer.toString(R.id.huellaImgID), "huella.png");
-					
-				} catch (Exception e) {
-					Log.e(TAG,
-							"Exception::ConsultaWS:onPostExecute->"
-									+ e.getMessage());
-				}
-			} else {
-
-				// Log.d(TAG, "No hubo conexi�n...Reintentando 1");
-				if (CheckInternetConnection.isConnectedToInternet(getApplicationContext())) {
-					new ConsultaWS().execute(no_cedula);
-				} else {
-					Toast.makeText(getApplicationContext(), "No hay servicio de Internet", Toast.LENGTH_SHORT).show();
-				}
-			}
-		}
-
-	}
-
-	public void setUIDatosFrente(Cedula cedula) {
+	public void setUIDatosFrente(Auto auto) {
 		tvUI = (TextView) findViewById(R.id.nombre);
-		tvUI.setText(cedula.getStrNombre());
+		tvUI.setText(auto.getStrFolio());
 		tvUI = (TextView) findViewById(R.id.apellidos);
-		tvUI.setText(cedula.getStrApellidos());
+		tvUI.setText(auto.getStrMarca());
 		tvUI = (TextView) findViewById(R.id.profesion);
-		tvUI.setText(cedula.getStrProfesion());
-		tvUI = (TextView) findViewById(R.id.domicilio);
-		tvUI.setText(cedula.getStrDomicilio());
+		tvUI.setText(auto.getStrSubMarca());
 		tvUI = (TextView) findViewById(R.id.estado_civil);
-		tvUI.setText(cedula.getStrEstadoCivil());
-		tvUI = (TextView) findViewById(R.id.fecha_emision);
-		tvUI.setText(cedula.getDateFechaEmision());
-		tvUI = (TextView) findViewById(R.id.fecha_vencimiento);
-		tvUI.setText(cedula.getDateFechaExpiracion());
+		tvUI.setText(auto.getStrPlaca());
 		tvUI = (TextView) findViewById(R.id.fecha_nacimiento);
-		tvUI.setText(cedula.getDateFechaNacimiento());
-		tvUI = (TextView) findViewById(R.id.lugar_nacimiento);
-		tvUI.setText(cedula.getStrLugarNacimiento());
-		tvUI = (TextView) findViewById(R.id.txtCedulaID);
-		tvUI.setText(cedula.getIntNoCedula());
-		tvUI = (TextView) findViewById(R.id.lblMatricula);
-		tvUI.setText(cedula.getStrMatricula());
-	}
-
-	public void setUIDatosReverso(Cedula cedula) {
-		tvUI = (TextView) findViewById(R.id.txtCedula);
-		tvUI.setText(cedula.getIntNoCedula());		
-		tvUI = (TextView) findViewById(R.id.serie);
-		tvUI.setText(cedula.getIntSerie());
-		tvUI = (TextView) findViewById(R.id.seccion);
-		tvUI.setText(cedula.getIntSeccion());
-		tvUI = (TextView) findViewById(R.id.lugarEmisionTxt);
-		tvUI.setText(cedula.getStrNombreEmision());		
-		tvUI = (TextView) findViewById(R.id.matriculaID);
-		tvUI.setText(cedula.getStrMatricula());
-		tvUI = (TextView) findViewById(R.id.ocr1ID);
-		tvUI.setText(cedula.getStrOCR1());
-		tvUI = (TextView) findViewById(R.id.ocr2ID);
-		tvUI.setText(cedula.getStrOCR2());
-		tvUI = (TextView) findViewById(R.id.ocr3ID);
-		tvUI.setText(cedula.getStrOCR3());
+		tvUI.setText(auto.getStrAnioModelo());
+		tvUI = (TextView) findViewById(R.id.fecha_emision);
+		tvUI.setText(auto.getStrImgAuto());
+		tvUI = (TextView) findViewById(R.id.fecha_vencimiento);
+		tvUI.setText(auto.getDtmFechaExpiracion());
+		tvUI = (TextView) findViewById(R.id.domicilio);
+		tvUI.setText(auto.getStrTipoAuto());
 	}
 
 	/**

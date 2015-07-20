@@ -1970,7 +1970,7 @@ containing a value of this type.
         public static final int jefe_gabinete=0x7f02005d;
         public static final int neology_tb=0x7f02005e;
         public static final int neology_tb2=0x7f02005f;
-        public static final int notification_template_icon_bg=0x7f02006b;
+        public static final int notification_template_icon_bg=0x7f02006e;
         public static final int ok=0x7f020060;
         public static final int persona=0x7f020061;
         public static final int search=0x7f020062;
@@ -1978,10 +1978,13 @@ containing a value of this type.
         public static final int search_wh=0x7f020064;
         public static final int segip_logo=0x7f020065;
         public static final int smartrac=0x7f020066;
-        public static final int soat_1=0x7f020067;
-        public static final int test=0x7f020068;
-        public static final int test_1=0x7f020069;
-        public static final int vencido=0x7f02006a;
+        public static final int soat4=0x7f020067;
+        public static final int soat5=0x7f020068;
+        public static final int soat6=0x7f020069;
+        public static final int soat_1=0x7f02006a;
+        public static final int test=0x7f02006b;
+        public static final int test_1=0x7f02006c;
+        public static final int vencido=0x7f02006d;
     }
     public static final class id {
         public static final int action0=0x7f0900b5;

@@ -60,6 +60,7 @@ public class FrenteFragment extends Fragment{
 		Bitmap preview_bitmap=BitmapFactory.decodeResource(getResources(), R.drawable.bolivia_flag, options);
 		
 		viewHolder.contenedor.setBackground(new BitmapDrawable(preview_bitmap));
+		viewHolder.contenedor.setAlpha(70);
 
 		return rootView;
 	}
