@@ -20,7 +20,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -35,14 +35,13 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import c.neo.boa.fragments.FrenteFragment;
-import c.neo.boa.fragments.ReversoFragment;
 import c.neo.boa.pagetransformers.ZoomOutPageTransformer;
 import c.neo.boa.utils.Auto;
 import c.neo.boa.utils.CheckInternetConnection;
-import c.neo.boa.R;
 
 public class DataActivity extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -63,7 +62,8 @@ public class DataActivity extends FragmentActivity implements
 	ViewPager mViewPager;
 
 	private final String TAG = DataActivity.class.getSimpleName();
-	private String no_cedula = "";
+	private String no_cedula ="", tipoPoliza = "", polizaValida="";
+	private String datos[];
 
 	// Defined to Consume the WS
 	private SoapObject request = null;
@@ -73,7 +73,7 @@ public class DataActivity extends FragmentActivity implements
 	private static final String SOAP_ACTION = "";
 	private static final String METHOD_NAME = "datosUsr";
 	private static final String NAMESPACE = "http://ws.neo.c";
-	private static final String URL = "http://192.168.0.14:8080/WS/services/ServiceAuto?wsdl";
+	private static final String URL = "http://148.245.107.245:8095/WS/services/ServiceAuto?wsdl";
 
 	// Dialog to show a wait message
 	private ProgressDialog dialog;
@@ -81,7 +81,6 @@ public class DataActivity extends FragmentActivity implements
 	private ProgressDialog dialogDownload;
 
 	// Defined to UI values
-	private TextView tvUI;
 	private ImageView ivUI;
 
 	@Override
@@ -91,7 +90,11 @@ public class DataActivity extends FragmentActivity implements
 
 		Intent intent = getIntent();
 
-		no_cedula = intent.getStringExtra("NO_CEDULA");
+		String d = intent.getStringExtra("NO_CEDULA");
+		datos = d.split("\\|");
+		no_cedula = datos[0];
+		tipoPoliza = datos[1];
+		polizaValida = datos[2];
 
 		// Creacion del mensaje de espera
 		dialog = new ProgressDialog(this);
@@ -201,7 +204,7 @@ public class DataActivity extends FragmentActivity implements
 				fragment = new FrenteFragment();
 				break;
 			case 1:
-				fragment = new ReversoFragment();
+//				fragment = new ReversoFragment();
 				break;
 			case 2:
 				break;
@@ -215,7 +218,7 @@ public class DataActivity extends FragmentActivity implements
 
 		@Override
 		public int getCount() {
-			return 2;
+			return 1;
 		}
 
 		@Override
@@ -225,9 +228,9 @@ public class DataActivity extends FragmentActivity implements
 			case 0:
 				return getString(R.string.title_section1).toUpperCase(l);
 			case 1:
-				return getString(R.string.title_section2).toUpperCase(l);
+//				return getString(R.string.title_section2).toUpperCase(l);
 			case 2:
-				return getString(R.string.title_section3).toUpperCase(l);
+//				return getString(R.string.title_section3).toUpperCase(l);
 			}
 			return null;
 		}
@@ -318,23 +321,72 @@ public class DataActivity extends FragmentActivity implements
 		
 	}
 
+	@SuppressWarnings("static-access")
 	public void setUIDatosFrente(Auto auto) {
-		tvUI = (TextView) findViewById(R.id.nombre);
-		tvUI.setText(auto.getStrFolio());
-		tvUI = (TextView) findViewById(R.id.apellidos);
-		tvUI.setText(auto.getStrMarca());
-		tvUI = (TextView) findViewById(R.id.profesion);
-		tvUI.setText(auto.getStrSubMarca());
-		tvUI = (TextView) findViewById(R.id.estado_civil);
-		tvUI.setText(auto.getStrPlaca());
-		tvUI = (TextView) findViewById(R.id.fecha_nacimiento);
-		tvUI.setText(auto.getStrAnioModelo());
-		tvUI = (TextView) findViewById(R.id.fecha_emision);
-		tvUI.setText(auto.getStrImgAuto());
-		tvUI = (TextView) findViewById(R.id.fecha_vencimiento);
-		tvUI.setText(auto.getDtmFechaExpiracion());
-		tvUI = (TextView) findViewById(R.id.domicilio);
-		tvUI.setText(auto.getStrTipoAuto());
+		TextView tipo = (TextView)findViewById(R.id.tipoAuto);
+		tipo.setText(auto.getStrTipoAuto());
+		
+		TextView folio = (TextView)findViewById(R.id.nombre);
+		folio.setText(auto.getStrFolio());
+		
+		TextView marca = (TextView)findViewById(R.id.apellidos);
+		marca.setText(auto.getStrMarca());
+		
+		TextView subMarca = (TextView)findViewById(R.id.profesion);
+		subMarca.setText(auto.getStrSubMarca());
+		
+		TextView placa = (TextView)findViewById(R.id.estado_civil);
+		placa.setText(auto.getStrPlaca());
+		
+		TextView anioModelo = (TextView)findViewById(R.id.fecha_nacimiento);
+		anioModelo.setText(auto.getStrAnioModelo());
+		
+		TextView fechaVencimiento = (TextView)findViewById(R.id.fecha_vencimiento);
+		fechaVencimiento.setText(auto.getDtmFechaExpiracion());
+		
+		ImageView v  = (ImageView)findViewById(R.id.foto_img);
+		ImageView v1 = (ImageView)findViewById(R.id.imgFantasmaID);
+		
+		TextView matricula = (TextView)findViewById(R.id.txtCedulaID);
+		
+		TextView tipoPolizaTxt = (TextView)findViewById(R.id.lblMatricula);
+		
+		
+		switch (Integer.parseInt(tipoPoliza)) {
+		case 1:
+			v.setImageResource(R.drawable.bmw);
+			v1.setImageResource(R.drawable.soat5);
+			matricula.setText("6500008896");
+			tipoPolizaTxt.setText("Vehicular");
+			break;
+
+		case 2:
+			v.setImageResource(R.drawable.iron);
+			v1.setImageResource(R.drawable.soat4);
+			matricula.setText("6500008897");
+			tipoPolizaTxt.setText("Motocicleta");
+			break;
+			
+		case 3:
+			v.setImageResource(R.drawable.taxi);
+			v1.setImageResource(R.drawable.soat6);
+			matricula.setText("6500008898");
+			tipoPolizaTxt.setText("Transporte Público");
+			break;
+		}
+		
+		RelativeLayout relativeLayout = (RelativeLayout)findViewById(R.id.layOutValid);
+		
+		ImageView ivUI = (ImageView) findViewById(R.id.estado_img);
+		if (polizaValida.equals("OK")) {
+			relativeLayout.setBackgroundColor(new Color().rgb(28, 191, 49));
+			ivUI.setImageResource(R.drawable.ok);
+			
+		} else {
+			relativeLayout.setBackgroundColor(new Color().rgb(222, 219, 31));
+			ivUI.setImageResource(R.drawable.vencido);
+		}
+
 	}
 
 	/**

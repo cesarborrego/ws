@@ -14,7 +14,8 @@
         android:background="#FFFFFF"
         android:orientation="vertical" >
 
-        <TextView
+        <!--
+            TextView
             android:id="@+id/titulo"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
@@ -22,14 +23,15 @@
             android:layout_weight="1"
             android:text="@string/titulo_bolivia"
             android:textColor="#0080FF"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            android:textSize="18sp"
+            android:textStyle="bold" /
+        -->
 
         <TextView
             android:id="@+id/titulo_cedula"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_weight="1.6"
+            android:layout_weight="2.6"
             android:gravity="center"
             android:text="@string/titulo_cedula"
             android:textColor="#0080FF"
@@ -71,19 +73,21 @@
         android:visibility="visible" >
 
         <ImageView
+            android:layout_width="280dp"
+            android:layout_height="0dp"
             android:layout_gravity="center"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:src="@drawable/soat_1" />
+            android:layout_weight="1.5"
+            android:src="@drawable/logo_soat" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center"
             android:text="@string/bienvenida"
             android:textColor="#848484"
-            android:textSize="30sp" />
+            android:textSize="26sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -100,7 +104,7 @@
             android:id="@+id/vencimientoLayOutID"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.6"
+            android:layout_weight="0.4"
             android:orientation="horizontal"
             android:paddingLeft="10dp"
             android:paddingRight="10dp" >
@@ -109,27 +113,30 @@
                 android:id="@+id/estado"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="5dp"
                 android:layout_weight="2"
                 android:text="@string/status_ok"
                 android:textColor="#848484"
                 android:textSize="23sp" />
 
-            <ImageView
+            <!--
+                ImageView
                 android:id="@+id/estado_img"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/status_ok"
-                android:src="@drawable/ok" />
+                android:src="@drawable/ok"
+                android:visibility="gone" /
+            -->
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/matriculaLayOutID"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.7"
+            android:layout_weight="0.5"
             android:orientation="vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp" >
@@ -160,32 +167,39 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp" >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/label_lugar_emision"
-                android:textSize="20sp" />
-
             <LinearLayout
-                android:id="@+id/emisionLayOutID"
+                android:id="@+id/LayOutID"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:orientation="horizontal"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp" >
 
-                <TextView
-                    android:id="@+id/lugar_emision"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="20dp"
                     android:layout_weight="2"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/lugarEmisonFake"
-                    android:textSize="25sp"
-                    android:textStyle="normal" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/label_tipoPoliza"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/tipoPolizaTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/label_tipoPolizaFake"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+                
                 <ImageView
                     android:id="@+id/img_depto"
                     android:layout_width="0dp"
@@ -193,6 +207,61 @@
                     android:layout_weight="0.8"
                     android:contentDescription="@string/label_lugar_emision"
                     android:src="@drawable/esfera" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/emisionLayOutID"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/label_lugarEmision"
+                    android:textSize="20sp" />
+                
+                <TextView
+                    android:id="@+id/lugar_emision"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/lugarEmisonFake"
+                    android:textSize="25sp"
+                    android:textStyle="normal|bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/placasLayOutID"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@string/label_placa"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/placaTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_placasFake"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
             </LinearLayout>
         </LinearLayout>
 
@@ -208,7 +277,7 @@
             android:layout_width="fill_parent"
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
-            android:layout_weight="1"
+            android:layout_weight="0.4"
             android:orientation="horizontal"
             android:paddingLeft="10dp"
             android:paddingRight="10dp" >
@@ -251,7 +320,7 @@
                     android:layout_marginLeft="20dp"
                     android:fontFamily="sans-serif-condensed"
                     android:text="@string/fechaEmisionFake"
-                    android:textSize="28sp"
+                    android:textSize="25sp"
                     android:textStyle="normal" />
 
                 <TextView
@@ -261,7 +330,7 @@
                     android:layout_marginLeft="20dp"
                     android:fontFamily="sans-serif-condensed"
                     android:text="@string/fechaVigenciaFake"
-                    android:textSize="28sp"
+                    android:textSize="25sp"
                     android:textStyle="normal" />
             </LinearLayout>
         </LinearLayout>
@@ -293,13 +362,31 @@
             android:layout_weight="1"
             android:background="#0B610B" />
 
-        <ImageView
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="9" >
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/titulo_bolivia"
+                android:textColor="#0080FF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!--
+            ImageView
             android:id="@+id/img_escudo"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
             android:layout_weight="9"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/escudo" />
+            android:src="@drawable/escudo" /
+        -->
     </LinearLayout>
 
 </LinearLayout>

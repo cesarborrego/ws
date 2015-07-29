@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -15,7 +14,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import c.neo.boa.DataActivity;
+import c.neo.boa.MainActivity;
 import c.neo.boa.R;
+import c.neo.boa.utils.Auto;
 
 public class FrenteFragment extends Fragment{
 
@@ -49,18 +51,16 @@ public class FrenteFragment extends Fragment{
 		viewHolder.lugarNacLbl = (TextView)rootView.findViewById(R.id.label_lugar_nacimiento);
 		viewHolder.lugarNacTxt = (TextView)rootView.findViewById(R.id.lugar_nacimiento);
 		viewHolder.lblMatricula = (TextView)rootView.findViewById(R.id.lblMatricula);
+		viewHolder.tipoAutoTxt = (TextView)rootView.findViewById(R.id.tipoAuto);
 		viewHolder.fotoMini = (ImageView)rootView.findViewById(R.id.imgFantasmaID);
 
 		rootView.setTag(viewHolder);
 		
-		viewHolder.fotoMini.setAlpha(85);
-
 		BitmapFactory.Options options=new BitmapFactory.Options();
 		options.inSampleSize = 5;
 		Bitmap preview_bitmap=BitmapFactory.decodeResource(getResources(), R.drawable.bolivia_flag, options);
 		
-		viewHolder.contenedor.setBackground(new BitmapDrawable(preview_bitmap));
-		viewHolder.contenedor.setAlpha(70);
+//		viewHolder.contenedor.setBackground(new BitmapDrawable(preview_bitmap));
 
 		return rootView;
 	}
@@ -93,6 +93,8 @@ public class FrenteFragment extends Fragment{
 		TextView domicilioTxt;
 		TextView domicilioLbl;
 		TextView lblMatricula;
+		TextView tipoAutoTxt;
+		TextView tipoAuto;
 		ImageView foto;
 	}
 }

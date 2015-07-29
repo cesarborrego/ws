@@ -6,21 +6,21 @@
     <string name="titulo_1">Servicio General de</string>
     <string name="titulo_2">Identificación</string>
     <string name="titulo_3">Personal</string>
-    <string name="titulo_bolivia">Estado Plurinacional de Bolivia</string>
+    <string name="titulo_bolivia">ESTADO PLURINACIONAL DE BOLIVIA</string>
     <string name="titulo_cedula">SEGURO OBLIGTORIO DE ACCIDENTES DE TRÁNSITO</string>
-    <string name="status_ok">Válida</string>
+    <string name="status_ok">Número de Póliza</string>
     <string name="status_invalid">No Válida</string>
     <string name="status_expired">Vencida</string>
-    <string name="bienvenida">Lea el Tag NFC de la identificación para validar los datos.</string>
+    <string name="bienvenida">LEA LA ROSETA SOAT-RFID PARA VALIDACIÓN DE DATOS</string>
     <string name="nfc_warning">NFC no disponible</string>
     <string name="buscar_label">Consultar información</string>
     <string name="wait_label">Espere por favor</string>
     <string name="gettingdata_label">Obteniendo información&#8230;</string>
     <string name="gettinimage_label">Descargando foto</string>
-    <string name="label_nombre">Folio</string>
+    <string name="label_nombre">Número de Póliza</string>
     <string name="label_apellidos">Marca</string>
     <string name="label_emitido_a">A:</string>
-    <string name="label_numeroCedula">No. Matricula</string>
+    <string name="label_numeroCedula">NIV</string>
     <string name="label_serie">Serie</string>
     <string name="label_seccion">Sección</string>
     <string name="label_lugar_emision">Emitida en</string>
@@ -63,5 +63,12 @@
     <string name="profesionFake">VETERINARIO (A)</string>
     
     <string name="cedulaLbl">Cédula de Identidad</string>
+    
+    <string name="label_placa">Placas</string>
+    <string name="label_tipoPoliza">Tipo de Póliza</string>
+    <string name="label_lugarEmision">Lugar de Emisión</string>
+    <string name="label_placasFake">Q-78954</string>
+    <string name="label_tipoPolizaFake">Vehicular</string>
+    <string name="label_polizaVigenteFake">Póliza Vigente</string>
 
 </resources>

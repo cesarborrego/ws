@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SOAT</string>
+    <string name="action_settings">v0.1</string>
+    <string name="titulo_1">Servicio General de</string>
+    <string name="titulo_2">Identificación</string>
+    <string name="titulo_3">Personal</string>
+    <string name="titulo_bolivia">ESTADO PLURINACIONAL DE BOLIVIA</string>
+    <string name="titulo_cedula">SEGURO OBLIGTORIO DE ACCIDENTES DE TRÁNSITO</string>
+    <string name="status_ok">Póliza</string>
+    <string name="status_invalid">No Válida</string>
+    <string name="status_expired">Vencida</string>
+    <string name="bienvenida">LEA LA ROSETA SOAT-RFID PARA VALIDACIÓN DE DATOS</string>
+    <string name="nfc_warning">NFC no disponible</string>
+    <string name="buscar_label">Consultar información</string>
+    <string name="wait_label">Espere por favor</string>
+    <string name="gettingdata_label">Obteniendo información&#8230;</string>
+    <string name="gettinimage_label">Descargando foto</string>
+    <string name="label_nombre">Folio</string>
+    <string name="label_apellidos">Marca</string>
+    <string name="label_emitido_a">A:</string>
+    <string name="label_numeroCedula">NIV</string>
+    <string name="label_serie">Serie</string>
+    <string name="label_seccion">Sección</string>
+    <string name="label_lugar_emision">Emitida en</string>
+    <string name="label_fecha_emitida">Emitida</string>
+    <string name="label_fecha_emision">Con fecha</string>
+    <string name="label_fecha_vencimiento">Válida hasta</string>
+    <string name="label_fecha_nacimiento">Año del Modelo</string>
+    <string name="label_lugar_nacimiento">Lugar de Nacimiento</string>
+    <string name="label_estado_civil">Placa</string>
+    <string name="label_profesion">Sub-Marca</string>
+    <string name="label_domicilio">Tipo de Auto</string>
+    <string name="title_activity_data">Datos de Cédula</string>
+    <string name="title_section1">DATOS PERSONALES</string>
+    <string name="title_section2">DATOS CÉDULA</string>
+    <string name="title_section3">Section 3</string>
+    <string name="ocr_1">I&#60;BOL0003992702&#60;&#60;&#60;&#60;&#60;&#60;&#60;&#60;&#60;&#60;&#60;&#60;&#60;&#60;&#60;</string>
+    <string name="ocr_2">4905125F1709137BOL&#60;&#60;&#60;&#60;&#60;&#60;&#60;&#60;&#60;&#60;&#60;4</string>
+    <string name="ocr_3">PIZANO&#60;MEDINA&#60;&#60;CARLA&#60;PAOLA&#60;&#60;&#60;&#60;</string>
+    
+    <!-- RED, NFC, GPS -->
+    <string name="noInternet">La conexiÃ³n de red estÃ¡ desactivada</string>
+    <string name="conexionRedDesactivada">La conexiÃ³n de red estÃ¡ desactivada, Â¿ir a configuraciÃ³n del dispositivo?</string>
+    <string name="conexionNFCDesactivada">El lector NFC esta desactivado, Â¿ir a configuraciÃ³n del dispositivo para activarlo?</string>
+    <string name="gpsDesactivado">El servicio de localizaciÃ³n estÃ¡ desactivado,para mejorar la precisiÃ³n puede activarlo Â¿ir a configuraciÃ³n del dispositivo?</string>
+    <string name="btnTextAceptar">Aceptar</string>
+    <string name="btnTextCancelar">Cancelar</string>
+    <string name="titleAlertDialog">información</string>
+    
+    <string name="matriculaFake">627171A-14</string>
+    <string name="cedulaFake">6500008896</string>
+    <string name="serieFake">32336</string>
+    <string name="seccionFake">23225</string>
+    <string name="fechaNacimientoFake">02/05/1988</string>
+    <string name="lugarNacimientoFake">LA PAZ - NUESTRA SEÑORA DE LA PAZ</string>
+    <string name="fechaEmisionFake">02/05/1988</string>
+    <string name="fechaVigenciaFake">02/05/1988</string>
+    <string name="lugarEmisonFake">UTOPÍA</string>
+    <string name="domicilioFake">C. JUAN SEBASTIAN 25-A</string>
+    <string name="estadoCivilFake">CASADO (A)</string>
+    <string name="profesionFake">VETERINARIO (A)</string>
+    
+    <string name="cedulaLbl">Cédula de Identidad</string>
+    
+    <string name="label_placa">Placas</string>
+    <string name="label_tipoPoliza">Tipo de Póliza</string>
+    <string name="label_lugarEmision">Lugar de Emisión</string>
+    <string name="label_placasFake">Q-78954</string>
+    <string name="label_tipoPolizaFake">Vehicular</string>
+
+</resources>

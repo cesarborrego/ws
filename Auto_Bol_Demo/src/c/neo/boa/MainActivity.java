@@ -1,5 +1,6 @@
 package c.neo.boa;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -45,7 +46,7 @@ public class MainActivity extends Activity {
 	MenuItem search_itemUI;
 	private Menu menu_mainUI;
 
-	private String no_cedula = "";
+	private String no_cedula ="", tipoPoliza = "", polizaValida="";
 	private boolean datosValidos = false;
 
 	Intent lecturaIntent;
@@ -103,9 +104,9 @@ public class MainActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		if (datosValidos) {
-			menu.findItem(R.id.buscar_item).setIcon(R.drawable.search_wh);
+			menu.findItem(R.id.buscar_item).setIcon(R.drawable.search);
 		} else {
-			menu.findItem(R.id.buscar_item).setIcon(R.drawable.search_na);
+			menu.findItem(R.id.buscar_item).setIcon(R.drawable.search);
 		}
 
 		menu_mainUI = menu;
@@ -211,16 +212,19 @@ public class MainActivity extends Activity {
 				}
 
 				tvUI = (TextView) findViewById(R.id.estado);
-				ivUI = (ImageView) findViewById(R.id.estado_img);
+//				ivUI = (ImageView) findViewById(R.id.estado_img);
 
 				try {
 					Calendar c = Calendar.getInstance();
 
-					SimpleDateFormat dateFormat = new SimpleDateFormat(
-							"DD-MM-yyyy", Locale.getDefault());
+
 					SimpleDateFormat outFormat = new SimpleDateFormat(
 							"DD/MM/yyyy", Locale.getDefault());
-					Date date_vencimiento = dateFormat.parse(datosTag[3]);
+
+					
+					DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+					Date date_vencimiento =  df.parse(datosTag[3]);
+					System.out.println(date_vencimiento); 
 
 					Date hoy = c.getTime();
 					datosTag[2] = datosTag[2].replace("-", "/");
@@ -230,14 +234,16 @@ public class MainActivity extends Activity {
 						Log.d(TAG,
 								"Permiso OK: "
 										+ outFormat.format(date_vencimiento));
-						tvUI.setText(R.string.status_ok);
-						ivUI.setImageResource(R.drawable.ok);
+//						tvUI.setText(R.string.status_ok);
+						polizaValida = "OK";
+//						ivUI.setImageResource(R.drawable.ok);
 					} else {
 						Log.d(TAG,
 								"Permiso Vencido: "
 										+ outFormat.format(date_vencimiento));
-						tvUI.setText(R.string.status_expired);
-						ivUI.setImageResource(R.drawable.vencido);
+//						tvUI.setText(R.string.status_expired);
+						polizaValida = "VENCIDA";
+//						ivUI.setImageResource(R.drawable.vencido);
 					}
 
 				} catch (Exception e) {
@@ -249,6 +255,8 @@ public class MainActivity extends Activity {
 				no_cedula = datosTag[0];
 				tvUI = (TextView) findViewById(R.id.matricula);
 				tvUI.setText(datosTag[0]);				
+				tvUI = (TextView) findViewById(R.id.placaTxt);
+				tvUI.setText(datosTag[1]);				
 				tvUI = (TextView) findViewById(R.id.fecha_emision);
 				tvUI.setText(datosTag[2]);
 				tvUI = (TextView) findViewById(R.id.fecha_vencimiento);
@@ -263,26 +271,33 @@ public class MainActivity extends Activity {
 				tvUI = (TextView) findViewById(R.id.lugar_emision);
 				tvUI.setText(departamentos[indice_depto]);
 
-				// int id_img_depto =
-				// getResources().getIdentifier("depto_"+datosTag[6],
-				// "drawable", getPackageName());
-				String tipoAuto[] = new String[]{"PARTICULAR","MOTOCICLETA","TRANSPORTE PUBLICO", "TRANSPORTE PRIVADO"};
+				int id_img_depto = 0;
 				
+				TextView tipoPolizaTxt = (TextView)findViewById(R.id.tipoPolizaTxt);
 
-				String tipo = "PARTICULAR";
-				if(tipoAuto[0].equals(tipo)) {
-					int id_img_depto = getResources().getIdentifier("soat4",
+				tipoPoliza = datosTag[5];
+				switch (Integer.parseInt(datosTag[5])) {
+				case 1:
+					id_img_depto = getResources().getIdentifier("soat5",
 							"drawable", getPackageName());
-					ivUI = (ImageView) findViewById(R.id.img_depto);
-					ivUI.setImageResource(id_img_depto);
-				} else if (tipoAuto[1].equals(tipo)) {
-					int id_img_depto = getResources().getIdentifier("esfera",
+					tipoPolizaTxt.setText("Vehicular");
+					break;
+
+				case 2:
+					id_img_depto = getResources().getIdentifier("soat4",
 							"drawable", getPackageName());
-					ivUI = (ImageView) findViewById(R.id.img_depto);
-					ivUI.setImageResource(id_img_depto);
+					tipoPolizaTxt.setText("Motocicleta");
+					break;
+
+				case 3:
+					id_img_depto = getResources().getIdentifier("soat6",
+							"drawable", getPackageName());
+					tipoPolizaTxt.setText("Transporte Público");
+					break;
 				}
-				
-				
+
+				ivUI = (ImageView) findViewById(R.id.img_depto);
+				ivUI.setImageResource(id_img_depto);
 
 				try {
 					search_itemUI = menu_mainUI.findItem(R.id.buscar_item);
@@ -306,7 +321,7 @@ public class MainActivity extends Activity {
 
 				try {
 					search_itemUI = menu_mainUI.findItem(R.id.buscar_item);
-					search_itemUI.setIcon(R.drawable.search_na);
+					search_itemUI.setIcon(R.drawable.search);
 				} catch (NullPointerException e) {
 					Log.e(TAG, "No hay menu aun: " + e.getMessage());
 					e.printStackTrace();
@@ -324,7 +339,7 @@ public class MainActivity extends Activity {
 
 	public void openData() {
 		Intent intent = new Intent(this, DataActivity.class);
-		intent.putExtra("NO_CEDULA", no_cedula);
+		intent.putExtra("NO_CEDULA", no_cedula+"|"+tipoPoliza+"|"+polizaValida);
 		startActivity(intent);
 	}
 }
